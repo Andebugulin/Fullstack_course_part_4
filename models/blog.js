@@ -5,10 +5,21 @@ mongoose.set('strictQuery', false)
 
 
 const blogSchema = mongoose.Schema({
-  title: String,
+  title: {
+    type: String,
+    required: true,
+    minlength: 1
+  },
   author: String,
-  url: String,
-  likes: Number,
+  url: {
+    type: String,
+    required: true,
+    minlength: 1
+  },
+  likes: {
+    type: Number,
+    default: 0
+  }
 })
 
 blogSchema.set('toJSON', {
